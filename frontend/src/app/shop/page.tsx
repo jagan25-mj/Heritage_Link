@@ -42,7 +42,7 @@ export default function Shop() {
           <div className="row">
             <div className="col-md-12">
               <div className="product-filters">
-                <ul>
+                <ul style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
                   {categories.map(cat => (
                     <li 
                       key={cat} 
