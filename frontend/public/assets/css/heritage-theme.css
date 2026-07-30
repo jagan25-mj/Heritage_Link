@@ -1,0 +1,1212 @@
+/*
+ * Heritage Link — Theme Override
+ * ================================
+ * Overrides the Fruitkha template colors, typography, and backgrounds
+ * with the Heritage Link brand identity.
+ *
+ * Color Palette:
+ *   --hl-primary:    #7A4E2D (Heritage Brown)
+ *   --hl-accent:     #B87333 (Copper)
+ *   --hl-gold:       #D4AF37 (Gold)
+ *   --hl-bg:         #F8F4ED (Parchment)
+ *   --hl-dark:       #2C1E16 (Dark Brown)
+ *   --hl-text:       #3D2B1F (Text Brown)
+ *   --hl-light:      #FFF9F0 (Light Cream)
+ *
+ * Typography:
+ *   Headings: Cormorant Garamond
+ *   Body:     Poppins
+ *
+ * This file is imported AFTER responsive.css on every page.
+ * It does NOT modify Bootstrap core or existing layout classes.
+ */
+
+/* ==========================================================================
+   CSS Custom Properties (Design Tokens)
+   Future: These map directly to Tailwind CSS theme tokens
+   ========================================================================== */
+:root {
+  --hl-primary: #7A4E2D;
+  --hl-primary-light: #9B6B47;
+  --hl-primary-dark: #5C3A21;
+  --hl-accent: #B87333;
+  --hl-gold: #D4AF37;
+  --hl-gold-light: #E8CC6E;
+  --hl-bg: #F8F4ED;
+  --hl-bg-alt: #F0E8DA;
+  --hl-dark: #2C1E16;
+  --hl-text: #3D2B1F;
+  --hl-light: #FFF9F0;
+  --hl-white: #FFFFFF;
+  --hl-border: #E0D5C7;
+  --hl-shadow: rgba(122, 78, 45, 0.15);
+  --hl-overlay: rgba(44, 30, 22, 0.65);
+  --hl-gradient: linear-gradient(135deg, var(--hl-primary) 0%, var(--hl-accent) 100%);
+  --hl-font-heading: 'Cormorant Garamond', 'Georgia', serif;
+  --hl-font-body: 'Poppins', 'Segoe UI', sans-serif;
+  --hl-radius: 8px;
+  --hl-radius-lg: 16px;
+  --hl-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Base Typography Overrides
+   ========================================================================== */
+body {
+  font-family: var(--hl-font-body);
+  color: var(--hl-text);
+  background-color: var(--hl-bg);
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-dark);
+}
+
+a:hover {
+  color: var(--hl-accent);
+}
+
+/* ==========================================================================
+   Selection Color
+   ========================================================================== */
+::selection {
+  background-color: var(--hl-gold);
+  color: var(--hl-dark);
+}
+
+::-moz-selection {
+  background-color: var(--hl-gold);
+  color: var(--hl-dark);
+}
+
+/* ==========================================================================
+   Preloader Override
+   ========================================================================== */
+.loader {
+  background-color: var(--hl-dark);
+}
+
+.loader .circle {
+  border-color: var(--hl-gold) transparent transparent transparent;
+}
+
+/* ==========================================================================
+   Accent Text Override (was .orange-text)
+   ========================================================================== */
+.orange-text {
+  color: var(--hl-accent) !important;
+}
+
+/* ==========================================================================
+   Button Overrides
+   ========================================================================== */
+.boxed-btn {
+  background-color: var(--hl-primary);
+  color: var(--hl-white);
+  border: 2px solid var(--hl-primary);
+  border-radius: var(--hl-radius);
+  font-family: var(--hl-font-body);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: var(--hl-transition);
+}
+
+.boxed-btn:hover {
+  background-color: var(--hl-accent);
+  border-color: var(--hl-accent);
+  color: var(--hl-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--hl-shadow);
+}
+
+.boxed-btn.black {
+  background-color: var(--hl-dark);
+  border-color: var(--hl-dark);
+}
+
+.boxed-btn.black:hover {
+  background-color: var(--hl-primary);
+  border-color: var(--hl-primary);
+}
+
+.bordered-btn {
+  color: var(--hl-white);
+  border: 2px solid var(--hl-gold);
+  border-radius: var(--hl-radius);
+  font-family: var(--hl-font-body);
+  font-weight: 600;
+  transition: var(--hl-transition);
+}
+
+.bordered-btn:hover {
+  background-color: var(--hl-gold);
+  color: var(--hl-dark);
+  transform: translateY(-2px);
+}
+
+.cart-btn {
+  background-color: var(--hl-primary);
+  color: var(--hl-white);
+  border-radius: var(--hl-radius);
+  font-family: var(--hl-font-body);
+  transition: var(--hl-transition);
+}
+
+.cart-btn:hover {
+  background-color: var(--hl-accent);
+  color: var(--hl-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--hl-shadow);
+}
+
+/* ==========================================================================
+   Navigation / Header Override
+   ========================================================================== */
+.top-header-area {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.top-header-area.is-sticky,
+.top-header-area.sticker-active {
+  background-color: var(--hl-dark);
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+}
+
+.main-menu ul li a {
+  color: var(--hl-white);
+  font-family: var(--hl-font-body);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+.main-menu ul li a:hover {
+  color: var(--hl-accent);
+}
+
+.main-menu ul li.current-list-item > a {
+  color: var(--hl-accent);
+}
+
+.main-menu ul li .sub-menu {
+  background-color: var(--hl-white);
+  border-top: 3px solid var(--hl-gold);
+  box-shadow: 0 10px 30px var(--hl-shadow);
+}
+
+.main-menu ul li .sub-menu li a {
+  color: var(--hl-text);
+}
+
+.main-menu ul li .sub-menu li a:hover,
+.main-menu ul li .sub-menu li.current-list-item > a {
+  color: var(--hl-accent);
+}
+
+.header-icons a {
+  color: var(--hl-white);
+}
+
+.header-icons a:hover {
+  color: var(--hl-accent);
+}
+
+.site-logo a {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-white);
+}
+
+/* ==========================================================================
+   Search Area Override
+   ========================================================================== */
+.search-area {
+  background-color: var(--hl-dark);
+}
+
+.search-area .search-bar-tablecell h3 {
+  color: var(--hl-gold);
+  font-family: var(--hl-font-heading);
+}
+
+.search-area .search-bar-tablecell input {
+  border-bottom-color: var(--hl-accent);
+  color: var(--hl-white);
+}
+
+.search-area .search-bar-tablecell button {
+  background-color: var(--hl-primary);
+  color: var(--hl-white);
+  border-radius: var(--hl-radius);
+}
+
+.search-area .search-bar-tablecell button:hover {
+  background-color: var(--hl-accent);
+}
+
+/* ==========================================================================
+   Hero Section Override
+   ========================================================================== */
+
+/* Static hero (index.html) */
+.hero-area.hero-bg {
+  background-image: url('../img/heritage/hero-slide-1.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-area.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(44, 30, 22, 0.85) 0%,
+    rgba(122, 78, 45, 0.6) 50%,
+    rgba(44, 30, 22, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+.hero-area .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text .subtitle {
+  color: var(--hl-gold);
+  font-family: var(--hl-font-body);
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.hero-text h1 {
+  color: var(--hl-white);
+  font-family: var(--hl-font-heading);
+  font-weight: 700;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Slider hero backgrounds (index_2.html) */
+.homepage-bg-1 {
+  background-image: url('../img/heritage/hero-slide-1.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.homepage-bg-2 {
+  background-image: url('../img/heritage/hero-slide-2.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.homepage-bg-3 {
+  background-image: url('../img/heritage/hero-slide-3.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* Ensure Slider Arrows are visible on the new OwlCarousel2 */
+.homepage-slider .owl-nav button.owl-prev,
+.homepage-slider .owl-nav button.owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  color: #fff !important;
+  font-size: 30px !important;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.homepage-slider .owl-nav button.owl-prev {
+  left: 30px;
+}
+
+.homepage-slider .owl-nav button.owl-next {
+  right: 30px;
+}
+
+.homepage-slider .owl-nav button:hover {
+  background-color: var(--hl-orange) !important;
+  color: #fff !important;
+}
+
+.single-homepage-slider {
+  position: relative;
+}
+
+.single-homepage-slider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(44, 30, 22, 0.85) 0%,
+    rgba(122, 78, 45, 0.5) 50%,
+    rgba(44, 30, 22, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+.single-homepage-slider .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Slow zoom animation on hero slides */
+@keyframes heritage-slow-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+.homepage-slider .single-homepage-slider {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Features / Services List Override
+   ========================================================================== */
+.list-section {
+  background-color: var(--hl-white);
+  border-bottom: 1px solid var(--hl-border);
+}
+
+.list-box .list-icon {
+  background-color: var(--hl-bg);
+  color: var(--hl-primary);
+  border-radius: 50%;
+}
+
+.list-box .list-icon i {
+  color: var(--hl-primary);
+}
+
+.list-box .content h3 {
+  color: var(--hl-dark);
+  font-family: var(--hl-font-heading);
+  font-size: 1.4rem;
+}
+
+.list-box .content p {
+  color: var(--hl-text);
+}
+
+/* ==========================================================================
+   Section Titles
+   ========================================================================== */
+.section-title h3 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-dark);
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.section-title p {
+  color: var(--hl-text);
+  font-family: var(--hl-font-body);
+}
+
+/* ==========================================================================
+   Product Cards Override
+   ========================================================================== */
+.product-section {
+  background-color: var(--hl-bg);
+}
+
+.single-product-item {
+  background-color: var(--hl-white);
+  border-radius: var(--hl-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(44, 30, 22, 0.08);
+  transition: var(--hl-transition);
+  border: 1px solid var(--hl-border);
+}
+
+.single-product-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(44, 30, 22, 0.15);
+}
+
+.single-product-item h3 {
+  color: var(--hl-dark);
+  font-family: var(--hl-font-heading);
+  font-size: 1.5rem;
+}
+
+.single-product-item .product-price {
+  color: var(--hl-primary);
+  font-weight: 700;
+}
+
+.single-product-item .product-price span {
+  color: var(--hl-accent);
+  font-weight: 400;
+}
+
+.product-image {
+  overflow: hidden;
+  border-radius: var(--hl-radius-lg) var(--hl-radius-lg) 0 0;
+}
+
+.product-image img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.single-product-item:hover .product-image img {
+  transform: scale(1.05);
+}
+
+/* Product Filters (shop.html) */
+.product-filters ul li {
+  color: var(--hl-text);
+  font-family: var(--hl-font-body);
+  border: 2px solid var(--hl-border);
+  border-radius: 25px;
+  padding: 8px 24px;
+  transition: var(--hl-transition);
+}
+
+.product-filters ul li:hover,
+.product-filters ul li.active {
+  background-color: var(--hl-primary);
+  color: var(--hl-white);
+  border-color: var(--hl-primary);
+}
+
+/* ==========================================================================
+   Cart Banner / Featured Craft Override
+   ========================================================================== */
+.cart-banner {
+  background-color: var(--hl-bg-alt);
+}
+
+.cart-banner .price-box {
+  background-color: var(--hl-primary);
+}
+
+.cart-banner .price-box .inner-price {
+  background-color: var(--hl-accent);
+}
+
+.cart-banner .content-column h3 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-dark);
+}
+
+.cart-banner .content-column h4 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-primary);
+}
+
+.time-counter .counter-column .inner {
+  background-color: var(--hl-primary);
+  border-radius: var(--hl-radius);
+}
+
+.time-counter .counter-column .inner .count {
+  color: var(--hl-gold);
+}
+
+/* ==========================================================================
+   Testimonials Override
+   ========================================================================== */
+.testimonail-section {
+  background-color: var(--hl-white);
+}
+
+.single-testimonial-slider .client-meta h3 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-dark);
+}
+
+.single-testimonial-slider .client-meta h3 span {
+  color: var(--hl-accent);
+}
+
+.single-testimonial-slider .testimonial-body {
+  color: var(--hl-text);
+  font-style: italic;
+}
+
+.single-testimonial-slider .last-icon i {
+  color: var(--hl-gold);
+}
+
+/* ==========================================================================
+   About / Advertisement Section Override
+   ========================================================================== */
+.abt-bg {
+  background-image: url('../img/heritage/hero-slide-2.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--hl-radius-lg);
+  overflow: hidden;
+}
+
+.abt-text .top-sub {
+  color: var(--hl-accent);
+  font-family: var(--hl-font-body);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.abt-text h2 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-dark);
+}
+
+.video-play-btn {
+  background-color: var(--hl-primary);
+}
+
+.video-play-btn:hover {
+  background-color: var(--hl-accent);
+}
+
+/* ==========================================================================
+   Shop Banner Override
+   ========================================================================== */
+.shop-banner {
+  background: var(--hl-gradient);
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  z-index: 0;
+}
+
+.shop-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.15);
+  z-index: 0;
+}
+
+.shop-banner .container {
+  position: relative;
+  z-index: 1;
+}
+
+.shop-banner h3 {
+  color: var(--hl-white);
+  font-family: var(--hl-font-heading);
+}
+
+.shop-banner .sale-percent {
+  color: var(--hl-gold);
+  border: 3px solid var(--hl-gold);
+}
+
+.shop-banner .sale-percent span {
+  color: var(--hl-white);
+}
+
+/* ==========================================================================
+   Blog / News Section Override
+   ========================================================================== */
+.single-latest-news {
+  background-color: var(--hl-white);
+  border-radius: var(--hl-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(44, 30, 22, 0.08);
+  transition: var(--hl-transition);
+  border: 1px solid var(--hl-border);
+}
+
+.single-latest-news:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(44, 30, 22, 0.15);
+}
+
+.news-text-box h3 a {
+  color: var(--hl-dark);
+  font-family: var(--hl-font-heading);
+}
+
+.news-text-box h3 a:hover {
+  color: var(--hl-accent);
+}
+
+.blog-meta .author i,
+.blog-meta .date i {
+  color: var(--hl-accent);
+}
+
+.read-more-btn {
+  color: var(--hl-primary);
+  font-weight: 600;
+}
+
+.read-more-btn:hover {
+  color: var(--hl-accent);
+}
+
+/* News background images */
+.news-bg-1 {
+  background-image: url('../img/heritage/kondapalli-toys.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.news-bg-2 {
+  background-image: url('../img/heritage/pochampally-saree.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.news-bg-3 {
+  background-image: url('../img/heritage/dokra-art.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.news-bg-4 {
+  background-image: url('../img/heritage/warli-painting.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.news-bg-5 {
+  background-image: url('../img/heritage/kalamkari.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.news-bg-6 {
+  background-image: url('../img/heritage/brass-lamp.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* Single Article */
+.single-artcile-bg {
+  background-image: url('../img/heritage/kondapalli-toys.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-radius: var(--hl-radius-lg);
+}
+
+/* ==========================================================================
+   Breadcrumb Section Override
+   ========================================================================== */
+.breadcrumb-section.breadcrumb-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(44, 30, 22, 0.9) 0%,
+    rgba(122, 78, 45, 0.85) 50%,
+    rgba(44, 30, 22, 0.9) 100%
+  ),
+  url('../img/heritage/hero-slide-3.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.breadcrumb-text p {
+  color: var(--hl-gold);
+  font-family: var(--hl-font-body);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
+.breadcrumb-text h1 {
+  color: var(--hl-white);
+  font-family: var(--hl-font-heading);
+}
+
+/* ==========================================================================
+   About Page - Feature BG Override
+   ========================================================================== */
+.feature-bg {
+  background-color: var(--hl-dark);
+}
+
+.feature-bg:after {
+  background-image: url('../img/heritage/featured-craft.png') !important;
+}
+
+.featured-text h2 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-white);
+}
+
+/* Team / Artisan Cards */
+.single-team-item h4 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-dark);
+}
+
+.single-team-item h4 span {
+  color: var(--hl-accent);
+}
+
+.team-bg-1 {
+  background-image: url('../img/heritage/kondapalli-toys.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.team-bg-2 {
+  background-image: url('../img/heritage/pochampally-saree.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.team-bg-3 {
+  background-image: url('../img/heritage/blue-pottery.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* ==========================================================================
+   Logo Carousel Override
+   ========================================================================== */
+.logo-carousel-section {
+  background-color: var(--hl-white);
+  border-top: 1px solid var(--hl-border);
+  border-bottom: 1px solid var(--hl-border);
+}
+
+/* ==========================================================================
+   Contact Page Overrides
+   ========================================================================== */
+.contact-form-wrap .contact-form-box {
+  background-color: var(--hl-primary);
+  border-radius: var(--hl-radius);
+}
+
+.contact-form-wrap .contact-form-box h4 {
+  color: var(--hl-white);
+  font-family: var(--hl-font-heading);
+}
+
+.contact-form-wrap .contact-form-box h4 i {
+  color: var(--hl-gold);
+}
+
+.contact-form input[type="submit"],
+.comment-template input[type="submit"] {
+  background-color: var(--hl-primary);
+  border-radius: var(--hl-radius);
+  transition: var(--hl-transition);
+}
+
+.contact-form input[type="submit"]:hover,
+.comment-template input[type="submit"]:hover {
+  background-color: var(--hl-accent);
+}
+
+.find-location.blue-bg {
+  background-color: var(--hl-primary);
+}
+
+.find-location p i {
+  color: var(--hl-gold);
+}
+
+/* Form styling */
+.form-title h2 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-dark);
+}
+
+.contact-form input,
+.contact-form textarea {
+  border-color: var(--hl-border);
+  border-radius: var(--hl-radius);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--hl-accent);
+}
+
+/* ==========================================================================
+   Cart & Checkout Overrides
+   ========================================================================== */
+.cart-table thead {
+  background-color: var(--hl-primary);
+}
+
+.total-table thead {
+  background-color: var(--hl-primary);
+}
+
+.coupon-section h3 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-dark);
+}
+
+.coupon-form-wrap input[type="submit"] {
+  background-color: var(--hl-primary);
+  border-radius: var(--hl-radius);
+}
+
+.coupon-form-wrap input[type="submit"]:hover {
+  background-color: var(--hl-accent);
+}
+
+/* Checkout Accordion */
+.single-accordion .card-header {
+  background-color: var(--hl-bg);
+}
+
+.single-accordion .btn-link {
+  color: var(--hl-dark);
+  font-family: var(--hl-font-heading);
+}
+
+.order-details-wrap .boxed-btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Single Product Override
+   ========================================================================== */
+.single-product-content h3 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-dark);
+  font-size: 2rem;
+}
+
+.single-product-pricing {
+  color: var(--hl-primary);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.single-product-pricing span {
+  color: var(--hl-accent);
+}
+
+.single-product-img img {
+  border-radius: var(--hl-radius-lg);
+}
+
+.product-share li a {
+  color: var(--hl-primary);
+}
+
+.product-share li a:hover {
+  color: var(--hl-accent);
+}
+
+/* ==========================================================================
+   Sidebar Override
+   ========================================================================== */
+.sidebar-section h4 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-dark);
+}
+
+.sidebar-section .tag-section ul li a {
+  border-color: var(--hl-border);
+  color: var(--hl-text);
+  border-radius: 25px;
+}
+
+.sidebar-section .tag-section ul li a:hover {
+  background-color: var(--hl-primary);
+  border-color: var(--hl-primary);
+  color: var(--hl-white);
+}
+
+/* ==========================================================================
+   404 Page Override
+   ========================================================================== */
+.error-text i {
+  color: var(--hl-accent);
+}
+
+.error-text h1 {
+  font-family: var(--hl-font-heading);
+  color: var(--hl-dark);
+}
+
+/* ==========================================================================
+   Pagination Override
+   ========================================================================== */
+.pagination-wrap ul li a {
+  border-color: var(--hl-border);
+  color: var(--hl-text);
+  border-radius: var(--hl-radius);
+  transition: var(--hl-transition);
+}
+
+.pagination-wrap ul li a:hover,
+.pagination-wrap ul li a.active {
+  background-color: var(--hl-primary);
+  border-color: var(--hl-primary);
+  color: var(--hl-white);
+}
+
+/* ==========================================================================
+   Footer Override
+   ========================================================================== */
+.footer-area {
+  background-color: var(--hl-dark);
+}
+
+.footer-box .widget-title {
+  color: var(--hl-gold);
+  font-family: var(--hl-font-heading);
+  font-size: 1.5rem;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.footer-box .widget-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--hl-gold);
+}
+
+.footer-box p,
+.footer-box ul li,
+.footer-box ul li a {
+  color: rgba(255, 249, 240, 0.7);
+}
+
+.footer-box ul li a:hover {
+  color: var(--hl-gold);
+}
+
+.footer-box.subscribe form input {
+  border-color: rgba(255, 249, 240, 0.2);
+  color: var(--hl-white);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--hl-radius);
+}
+
+.footer-box.subscribe form button {
+  background-color: var(--hl-accent);
+  color: var(--hl-white);
+  border-radius: var(--hl-radius);
+}
+
+.footer-box.subscribe form button:hover {
+  background-color: var(--hl-gold);
+}
+
+/* ==========================================================================
+   Copyright Override
+   ========================================================================== */
+.copyright {
+  background-color: #1A120D;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.copyright p {
+  color: rgba(255, 249, 240, 0.5);
+}
+
+.copyright p a {
+  color: var(--hl-gold);
+}
+
+.copyright p a:hover {
+  color: var(--hl-accent);
+}
+
+.social-icons ul li a {
+  color: rgba(255, 249, 240, 0.6);
+  transition: var(--hl-transition);
+}
+
+.social-icons ul li a:hover {
+  color: var(--hl-gold);
+}
+
+/* ==========================================================================
+   Heritage-Specific Components
+   Future: These will become React components
+   ========================================================================== */
+
+/* GI Tag Badge */
+.gi-tag-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--hl-gold), #C9A84C);
+  color: var(--hl-dark);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--hl-font-body);
+}
+
+/* Artisan Info */
+.craft-meta {
+  font-size: 13px;
+  color: var(--hl-text);
+  font-family: var(--hl-font-body);
+  margin-bottom: 8px;
+}
+
+.craft-meta i {
+  color: var(--hl-accent);
+  margin-right: 5px;
+  width: 16px;
+}
+
+/* Heritage Stats Counter */
+.heritage-stat {
+  text-align: center;
+  padding: 20px;
+}
+
+.heritage-stat .stat-number {
+  font-family: var(--hl-font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--hl-primary);
+  line-height: 1;
+}
+
+.heritage-stat .stat-label {
+  font-family: var(--hl-font-body);
+  font-size: 14px;
+  color: var(--hl-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+
+/* Craft Story Button */
+.story-btn {
+  display: inline-block;
+  color: var(--hl-accent);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--hl-gold);
+  padding-bottom: 2px;
+  transition: var(--hl-transition);
+}
+
+.story-btn:hover {
+  color: var(--hl-primary);
+  border-color: var(--hl-primary);
+}
+
+/* Lotus Divider */
+.lotus-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+
+.lotus-divider::before,
+.lotus-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--hl-gold));
+}
+
+.lotus-divider::before {
+  right: calc(50% + 20px);
+}
+
+.lotus-divider::after {
+  left: calc(50% + 20px);
+  background: linear-gradient(to left, transparent, var(--hl-gold));
+}
+
+.lotus-divider span {
+  color: var(--hl-gold);
+  font-size: 24px;
+}
+
+/* ==========================================================================
+   Mean Menu (Mobile) Override
+   ========================================================================== */
+.mean-container .mean-bar {
+  background-color: var(--hl-white);
+}
+
+.mean-container a.meanmenu-reveal {
+  color: var(--hl-dark);
+}
+
+.mean-container a.meanmenu-reveal span {
+  background-color: var(--hl-dark);
+}
+
+.mean-container .mean-nav {
+  background-color: var(--hl-white);
+}
+
+.mean-container .mean-nav ul li a {
+  color: var(--hl-dark);
+  border-top-color: var(--hl-border);
+}
+
+.mean-container .mean-nav ul li a:hover {
+  color: var(--hl-accent);
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+@media only screen and (max-width: 767.96px) {
+  .section-title h3 {
+    font-size: 2rem;
+  }
+
+  .heritage-stat .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 575.96px) {
+  .section-title h3 {
+    font-size: 1.75rem;
+  }
+
+  .heritage-stat .stat-number {
+    font-size: 2rem;
+  }
+}
