@@ -20,10 +20,72 @@ export default function Checkout() {
     e.preventDefault();
     if (cart.length === 0) return alert("Cart is empty");
 
-    setStatusMsg("Redirecting to secure payment page...");
-    
-    // Redirect to the provided Razorpay payment page
-    window.location.href = "https://rzp.io/rzp/DGumc3Qb";
+    setStatusMsg("Creating order...");
+    const shippingCost = 150;
+    const finalAmount = totalAmount + shippingCost;
+
+    try {
+      // 1. Create Order on Backend
+      const res = await fetch('/api/orders/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: cart,
+          totalAmount: finalAmount,
+          shippingDetails
+        })
+      });
+      const data = await res.json();
+      
+      if (!data.success) throw new Error(data.error || "Failed to create order");
+
+      // 2. Open Razorpay Checkout
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'placeholder',
+        amount: data.amount,
+        currency: data.currency,
+        name: "Heritage Link",
+        description: "Test Transaction",
+        order_id: data.order_id,
+        handler: async function (response: any) {
+          setStatusMsg("Payment successful, verifying and generating shipment...");
+          // 3. Verify Payment on Backend & trigger Shiprocket
+          const verifyRes = await fetch('/api/orders/verify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              shippingDetails,
+              items: cart
+            })
+          });
+          const verifyData = await verifyRes.json();
+          if (verifyData.success) {
+            clearCart();
+            window.location.href = `/success?labelUrl=${encodeURIComponent(verifyData.labelUrl || '')}`;
+          } else {
+            setStatusMsg("Payment verification failed: " + verifyData.message);
+          }
+        },
+        prefill: {
+          name: shippingDetails.name,
+          email: shippingDetails.email,
+          contact: shippingDetails.phone
+        },
+        theme: {
+          color: "#F28123"
+        }
+      };
+
+      const rzp1 = new (window as any).Razorpay(options);
+      rzp1.open();
+      setStatusMsg("");
+    } catch (error: any) {
+      console.error(error);
+      setStatusMsg("Error: " + error.message);
+    }
   };
 
   return (
