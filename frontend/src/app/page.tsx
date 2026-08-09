@@ -116,12 +116,12 @@ export default function Home() {
             <div className="col-lg-4 col-md-6 text-center">
               <div className="single-product-item">
                 <div className="product-image">
-                  <a href="/shop"><img src="/assets/img/heritage/kondapalli-toys.png" alt="" /></a>
+                  <a href="/shop"><img src="/assets/img/products/ecommerce/ecommerce_elephant_1_1786208980204.png" alt="Kondapalli Wooden Elephant" /></a>
                 </div>
-                <h3>Kondapalli Toys</h3>
+                <h3>Kondapalli Wooden Elephant</h3>
                 <p className="craft-meta"><i className="fas fa-user"></i> Rama Krishna &bull; Kondapalli Village</p>
                 <span className="gi-tag-badge">GI Certified</span>
-                <p className="product-price"><span>Handcrafted</span> ₹2,500 </p>
+                <p className="product-price"><span>Handcrafted</span> ₹2500 </p>
                 <a href="/shop" className="cart-btn"><i className="fas fa-shopping-cart"></i> Shop Now</a>
               </div>
             </div>
@@ -129,25 +129,25 @@ export default function Home() {
             <div className="col-lg-4 col-md-6 text-center">
               <div className="single-product-item">
                 <div className="product-image">
-                  <a href="/shop"><img src="/assets/img/heritage/blue-pottery.png" alt="" /></a>
+                  <a href="/shop"><img src="/assets/img/products/ecommerce/ecommerce_bullcart1_1786209114316.png" alt="Kondapalli Bullock Cart" /></a>
                 </div>
-                <h3>Blue Pottery Vase</h3>
-                <p className="craft-meta"><i className="fas fa-user"></i> Jaipur Artisan Cluster</p>
-                <span className="gi-tag-badge">Authentic</span>
-                <p className="product-price"><span>Handcrafted</span> ₹1,800 </p>
-                <a href="/shop" className="cart-btn"><i className="fas fa-shopping-cart"></i> Shop Now</a>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6 text-center">
-              <div className="single-product-item">
-                <div className="product-image">
-                  <a href="/shop"><img src="/assets/img/heritage/kalamkari.png" alt="" /></a>
-                </div>
-                <h3>Kalamkari Fabric</h3>
-                <p className="craft-meta"><i className="fas fa-user"></i> Pedana Weavers</p>
+                <h3>Kondapalli Bullock Cart</h3>
+                <p className="craft-meta"><i className="fas fa-user"></i> Rama Krishna &bull; Kondapalli Village</p>
                 <span className="gi-tag-badge">GI Certified</span>
-                <p className="product-price"><span>Handcrafted</span> ₹3,500 </p>
+                <p className="product-price"><span>Handcrafted</span> ₹1800 </p>
+                <a href="/shop" className="cart-btn"><i className="fas fa-shopping-cart"></i> Shop Now</a>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6 text-center">
+              <div className="single-product-item">
+                <div className="product-image">
+                  <a href="/shop"><img src="/assets/img/products/ecommerce/ecommerce_marriagemandapam1_1786209263485.png" alt="Kondapalli Marriage Mandapam" /></a>
+                </div>
+                <h3>Kondapalli Marriage Mandapam</h3>
+                <p className="craft-meta"><i className="fas fa-user"></i> Rama Krishna &bull; Kondapalli Village</p>
+                <span className="gi-tag-badge">GI Certified</span>
+                <p className="product-price"><span>Handcrafted</span> ₹3200 </p>
                 <a href="/shop" className="cart-btn"><i className="fas fa-shopping-cart"></i> Shop Now</a>
               </div>
             </div>
