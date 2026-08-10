@@ -49,7 +49,7 @@ export default function Cart() {
                               <i className="far fa-window-close"></i>
                             </button>
                           </td>
-                          <td className="product-image"><img src={`/assets/img/heritage/${item.image}`} alt={item.name} style={{ width: '80px', height: 'auto' }} /></td>
+                          <td className="product-image"><img src={item.image} alt={item.name} style={{ width: '80px', height: 'auto' }} /></td>
                           <td className="product-name">{item.name}</td>
                           <td className="product-price">₹{item.price}</td>
                           <td className="product-quantity">

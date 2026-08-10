@@ -41,7 +41,7 @@ function ProductCard({ product, addToCart }: { product: Product, addToCart: (p: 
               >
                 &gt;
               </button>
-              <div style={{ position: 'absolute', bottom: '10px', width: '100%', display: 'flex', justifyContent: 'center', gap: '5px' }}>
+              <div style={{ position: 'absolute', bottom: '10px', left: '0', width: '100%', display: 'flex', justifyContent: 'center', gap: '5px' }}>
                 {product.images!.map((_, idx) => (
                   <div key={idx} style={{ width: '8px', height: '8px', borderRadius: '50%', background: idx === currentImageIndex ? '#F28123' : '#ccc' }} />
                 ))}
